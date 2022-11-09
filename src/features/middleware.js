@@ -1,15 +1,18 @@
+
 export const logger = store => next => action => {
-    if (typeof action === 'function') {
+    if(typeof action === 'function') {
         action(store.dispatch, store.getState)
-    } else { 
+    } else {
         console.log('dispatch', store.getState())
         next(action)
         console.log('after dispatch', store.getState())
     }
 }
 
-// export const logger = store => next => action => {
-//     console.log('dispatch', store.getState())
-//     next(action)
-//     console.log('after dispatch', store.getState())
-// }
+/*
+export const logger = store => next => action => {
+    console.log('dispatch', store.getState())
+    next(action)
+    console.log('after dispatch', store.getState())
+}
+*/
